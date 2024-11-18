@@ -10,26 +10,25 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-
-src = ./src/ft_printf.c \
+NAME = ft_printf.a
+CC = cc
+SRCS = ./src/ft_printf.c \
 	./src/ft_printf_display.c \
 	./src/ft_printf_hex.c \
 
-obj = *.o
-
+OBJS = *.o
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME):
-	gcc $(CFLAGS) -c $(src) -I ./
-	ar rc $(NAME) $(obj)
+	$(CC) $(CFLAGS) -c $(SRCS) -I ./
+	ar rc $(NAME) $(OBJS)
 
 clean:
-	rm -f $(obj)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME);
+	@rm -f $(NAME);
 
 re: fclean all
